@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filtro por Mes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      En esta sección podra filtrar los reportes de acuerdo al mes que seleccione.
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item >
+      <ion-label position="floating">MES</ion-label>
+      <ion-select [(ngModel)]="mes">
+        <ion-select-option  *ngFor="let meses of mesesDatabase" value="{{meses.id}}" show-hide-input>{{meses.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="FiltrarModal()" color="success" expand="full">Filtrar</ion-button>
+  <ion-button (click)="cerrarModal()" expand="full">Cancelar</ion-button>
+
+</ion-content>

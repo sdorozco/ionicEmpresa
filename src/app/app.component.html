@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-menu menuId="main-menu" content-id="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-chip class="chip-class">
+          <ion-avatar class="avatar-class">
+          <img src="assets/img/userfemale.png" class="img-menu">
+        </ion-avatar>
+          <ion-title >{{username}}</ion-title>
+        </ion-chip>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-item (click)="inicio()">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-item>
+
+        <ion-item (click)="navigateInforme()">
+          <ion-icon name="clipboard-outline" slot="start"></ion-icon>
+          <ion-label>Informe de Parada</ion-label>
+        </ion-item>
+        <ion-item (click)="agregarUsuario()">
+          <ion-icon name="construct-outline" slot="start"></ion-icon>
+          <ion-label>Configuración Usuario</ion-label>
+        </ion-item>
+      </ion-list>
+      <br><br>
+      <ion-list>
+        <ion-item (click)="logout()">
+          <ion-icon name="exit-outline" slot="start"></ion-icon>
+          <ion-label>Cerrar Sesión</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

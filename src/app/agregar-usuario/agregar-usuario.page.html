@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Configuración</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+      <ion-buttons>
+      </ion-buttons>
+    </ion-buttons>
+    
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+  <ion-searchbar
+    showcancelbutton=""
+    autocomplete=true
+    animate=true
+    (ionInput)="filterList($event)" style="width: 100%;"></ion-searchbar>
+</ion-row>
+</ion-grid>
+<ion-list>
+   <ion-item *ngFor="let user of list | filtroUser:buscar" animated> {{user.usuario}}
+    <ion-button (click)="listId(user.id)" color="success" style="margin: 0%;" expand="block" slot="end">
+      <ion-icon  name="clipboard-outline"></ion-icon>
+    </ion-button>
+    <ion-button (click)="deleteUser(user.id,user.usuario)" name="delete" id="delete" color="danger" style="margin: 0%;" expand="block" slot="end">
+       <ion-icon  name="trash-outline"></ion-icon>
+     </ion-button>
+   </ion-item>
+</ion-list>
+<!-- fab placed to the bottom end -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button href="new-user">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

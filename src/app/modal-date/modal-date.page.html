@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>REPORTE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  <ion-card-content>
+    En esta sección podra generar un reporte en excel entre la fecha inicial y la fecha final.
+  </ion-card-content>
+</ion-card>
+  <ion-item >
+    <ion-label position="floating"> FECHA INICIAL </ion-label>
+    <ion-datetime displayFormat="YYYY-MM-DD" min="2005" max="2030" value="{{today | date: 'yyyy-MM-dd'}}" done-text="OK" [(ngModel)]="date_inicial"></ion-datetime> 
+  </ion-item>
+  <ion-item >
+    <ion-label position="floating"> FECHA FINAL </ion-label>
+    <ion-datetime displayFormat="YYYY-MM-DD" min="2005" max="2030" value="{{today | date: 'yyyy-MM-dd'}}" done-text="OK" [(ngModel)]="date_final"></ion-datetime> 
+  </ion-item>
+  <ion-button (click)="dateModal()" color="success" expand="full">
+    Generar Reporte
+  </ion-button>
+  <ion-button (click)="cerrarModal()" color="primary" expand="full"> 
+    Cancelar
+  </ion-button>
+</ion-content>

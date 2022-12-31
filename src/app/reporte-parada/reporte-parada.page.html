@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteReport()">
+        <ion-icon  color="danger" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{estado}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label position="floating">FECHA:</ion-label>
+          <ion-input [(ngModel)]="fecha" disabled="true"></ion-input> 
+        </ion-col>
+        <ion-col>
+          <ion-label position="floating" >HORA PARADA:</ion-label>
+          <ion-input [(ngModel)]="hora" disabled="true"></ion-input>
+        </ion-col>
+</ion-row>
+</ion-grid>
+
+<ion-list>
+  <ion-item >
+    <ion-label position="floating">AREA</ion-label>
+    <ion-select [(ngModel)]="areas">
+      <ion-select-option *ngFor="let area of areaDatabase" show-hide-input>{{area.codigo}} - {{area.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">ESTACION</ion-label>
+    <ion-select [(ngModel)]="estaciones">
+      <ion-select-option *ngFor="let estacion of estacionDatabase">{{estacion.codigo}} - {{estacion.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-list>
+
+  <ion-item>
+    <ion-label position="floating">OPERARIO</ion-label>
+    <ion-select [(ngModel)]="operarios">
+      <ion-select-option *ngFor="let operario of operarioDatabase">{{operario.codigo}} - {{operario.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">MOTIVO DE PARADA</ion-label>
+    <ion-select  [(ngModel)]="motivos">
+      <ion-select-option *ngFor="let motivo_parada of motivoDatabase">{{motivo_parada.codigo}} - {{motivo_parada.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+        <ion-col col-6>
+          <ion-item >
+     <ion-label position="floating"> FECHA </ion-label>
+     <ion-datetime displayFormat="YYYY-MM-D" min="2005" max="2030" value="{{today | date: 'yyyy-MM-d'}}" done-text="OK" [(ngModel)]="datecito"></ion-datetime> 
+          </ion-item>
+        </ion-col>
+<ion-col col-6>
+  <ion-item>
+    <ion-label position="floating">HORA REINICIO:</ion-label>
+    <ion-datetime [(ngModel)]="hora_reinicio" displayFormat="HH:mm" done-text="OK"></ion-datetime>
+   </ion-item>
+</ion-col>
+</ion-row>
+</ion-grid>
+  <ion-item>
+    <ion-label position="floating" >Description</ion-label>
+    <ion-textarea placeholder="Descripcion" [(ngModel)]="descripcion" ></ion-textarea>
+  </ion-item>
+  <br>
+  <ion-button (click)="updateReporte()" style=" display: block; width: 100%; margin: 5px" color="primary">Actualizar Reporte</ion-button>
+  <ion-grid>
+  <ion-row style="width: 100%;">
+    <ion-col size="6">
+      <ion-button (click)="generatePdf()"  style="display: block; width: 100%;margin-top: 5px;" color="danger">Reporte PDF</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="generarExcel()" style="display: block;" color="success">Reporte Excel</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-list>
+</ion-content>

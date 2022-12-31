@@ -1,0 +1,8 @@
+{
+  "name": "LinaApp",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

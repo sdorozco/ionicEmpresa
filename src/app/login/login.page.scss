@@ -1,0 +1,28 @@
+ion-input.custom-input{
+    border-radius: 30px;
+    border: skyblue;
+    border-color: skyblue;
+    background: #acd7ff;
+    color: black;
+    font-size: 12px;
+}
+img.custom-img-fondo{
+    width: 60%;
+    height: 25%;
+    display: block;
+    margin: auto;
+}
+ion-button.custom-button{
+    width: 90%;
+    height: 50px;
+    border-radius: 30px;
+    display: block;
+    margin: auto;
+}
+ion-button.custom-clear-pass{
+    display: block;
+    margin: auto;
+    color: #3880ff;
+    width: 100%;
+    font-size: 10px;
+}

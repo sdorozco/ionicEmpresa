@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Listado Reportes</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+  <ion-searchbar
+    autocomplete=true
+    animate=true
+    (ionInput)="filterList($event)" style="width: 100%;"></ion-searchbar>
+</ion-row>
+</ion-grid>
+<ion-list *ngFor="let listParada of list | filtro:buscar">
+   <ion-item (click)="listId(listParada.id)"  animated>{{listParada.fecha}}:{{listParada.hora}} - {{listParada.estado}}
+    <ion-button *ngIf="listParada.estado == 'Pendiente'" (click)="listId(listParada.id)" style="margin: 0%;" expand="block" slot="end" color="warning">
+      <ion-icon  name="alert-outline"></ion-icon>
+    </ion-button>
+    <ion-button *ngIf="listParada.estado =='Completado'"color="success" (click)="listId(listParada.id)" style="margin: 0%;" expand="block" slot="end">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-button>
+   </ion-item>
+</ion-list>
+
+</ion-content>

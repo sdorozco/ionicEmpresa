@@ -1,0 +1,11 @@
+export const usuario:string = "user";
+export const informesParada:string = "informesParada";
+export const areas:string = "area";
+export const estaciones:string = "estacion";
+export const operarios:string = "operario";
+export const motivos_parada:string = "motivo_parada";
+export const EstadoP:string = "Pendiente";
+export const EstadoC:string = "Completado";
+export const motivos_inicio:string = "motivo-inicio";
+export const mes:string = "meses";
+export const ReportesTransaccional:string = "ReportesTransaccional";
